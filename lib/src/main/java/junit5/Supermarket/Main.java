@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import junit5.Supermarket.Item;
+import junit5.Supermarket.impl.SumPriceImpl;
 
 public class Main {
     public static void main(String[] args){
@@ -79,5 +80,8 @@ public class Main {
         }
 
         System.out.println(paymentTime + "時");
+        SumPrice sumPrice = new SumPriceImpl();
+
+        System.out.println("消費税抜きの合計金額：" + sumPrice.getItemListPrice(purchaseList) + "円");
     }
 }
