@@ -11,7 +11,7 @@
    @Override
    public BigDecimal countPriceWithTax (int id, int num){
          double taxRate = 0.08;
-         if (id == 7 || id ==8){
+         if (id == Item.TOBACCO.getId() || id == Item.MENTHOLTOBACCO.getId() ){
              taxRate = 0;
          }
          int price = 0 ;
