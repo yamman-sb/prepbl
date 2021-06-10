@@ -92,6 +92,6 @@ public class Main {
     System.out.println(paymentTime + "時");
     SumPrice sumPrice = new SumPriceImpl();
 
-    System.out.println("合計金額（税込み）：" + sumPrice.getItemListPrice(purchaseList) + "円");
+    System.out.println("合計金額（税込み）：" + sumPrice.getItemListPrice(purchaseList, paymentTime) + "円");
   }
 }

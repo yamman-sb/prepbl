@@ -5,8 +5,8 @@
 
  public class TimeDiscountImpl implements TimeDiscount{
       @Override
-      public int obentouDiscount(Item item, int totalPrice, int paymentTime) {
-          if (paymentTime >= 20 && (item.getName().equals("のり弁") || item.getName().equals("しゃけ弁"))) {
+      public int obentouDiscount(int id, int totalPrice, int paymentTime) {
+          if (paymentTime >= 20 && ((id == Item.NORIBEN.getId()) || (id == Item.SYAKEBENN.getId()))) {
             return totalPrice/2;
           }else {
             return totalPrice;

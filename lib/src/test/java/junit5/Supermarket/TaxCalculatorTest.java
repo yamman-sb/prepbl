@@ -20,12 +20,12 @@ class TaxCalculatorTest {
         @Test
         void みかん３個(){
             BigDecimal d = new BigDecimal("9.60");
-            assertEquals(d, t.countPriceWithTax(2,3));
+            assertEquals(d, t.countPriceWithTax(2,3, 18));
         }
         @Test
         void タバコ何個渡しても消費税0(){
             BigDecimal d = new BigDecimal("0.00");
-            assertEquals(d, t.countPriceWithTax(7,3));
+            assertEquals(d, t.countPriceWithTax(7,3, 18));
         }
 
     }

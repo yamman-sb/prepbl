@@ -24,5 +24,3 @@
          assertEquals(2000,result);
      }
  }
-    
-    
