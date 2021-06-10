@@ -36,7 +36,7 @@ public class SumPriceImpl implements SumPrice {
 
     // ここを別のメソッドでItemInfoのSumPriceを使う
     for (ItemInfo itemInfo : itemList) {
-      sumPriceOutput += itemInfo.getItem().getPrice() * itemInfo.getSumQuantity();
+      sumPriceOutput += itemInfo.getSumPrice();
       sumTax += taxCalculator.countPriceWithTax(itemInfo.getItem().getId(), itemInfo.getSumQuantity()).doubleValue();
     }
 
