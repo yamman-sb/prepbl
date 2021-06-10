@@ -5,7 +5,7 @@ import java.util.List;
 public interface SumPrice{
   int getItemPrice(int itemId);
 
-  int getItemListPrice(List<Item> itemList);
+  int getItemListPrice(List<ItemInfo> itemList);
   //List<ItemInfo> SumFromItemList(List<Item>);
 
  }

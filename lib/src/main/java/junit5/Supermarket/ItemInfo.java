@@ -2,7 +2,7 @@ package junit5.Supermarket;
 
 public class ItemInfo {
   private final Item item;
-  private final int sumQuantity;
+  private int sumQuantity;
   private final int sumPrice;
 
   public ItemInfo(Item item, int sumQuantity, int sumPrice) {
@@ -21,5 +21,13 @@ public class ItemInfo {
 
   public int getSumPrice() {
     return sumPrice;
+  }
+
+  public void addQuantity(int itemQuantity) {
+    this.sumQuantity += itemQuantity;
+  }
+
+  public void calSumPrice() {
+
   }
 }

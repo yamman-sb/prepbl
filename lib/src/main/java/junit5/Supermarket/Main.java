@@ -12,7 +12,8 @@ public class Main {
     Scanner ans = new Scanner(System.in);
     String input = "";
     List<Item> itemList = List.of(Item.APPLE, Item.ORANGE, Item.GRAPE, Item.NORIBEN, Item.SYAKEBENN, Item.TOBACCO, Item.MENTHOLTOBACCO, Item.LIGHTER, Item.TEA, Item.COFFEE);
-    List<Item> purchaseList = new ArrayList<Item>();
+    List<ItemInfo> purchaseList = new ArrayList<>();
+    List<Integer> itemNums = new ArrayList<Integer>(); // 選んだ商品の番号を保存
     int selectedItemId = 0;
     int selectedNumber = 0;
     int paymentTime = 0;
@@ -56,11 +57,19 @@ public class Main {
         }
       }
 
-      for (int number = 0; number < selectedNumber; number++) {
-        purchaseList.add(selectedItem);
+      // purchaseListに同じ商品がない場合は新規作成、ある場合追加
+      if (itemNums.contains(selectedItemId) ) {
+        // 追加
+        for (ItemInfo itemInfo : purchaseList) {
+          if (itemInfo.getItem().getId()  == selectedItemId) {
+            itemInfo.addQuantity(selectedNumber);
+          }
+        }
+      } else {
+        // 新規作成
+        ItemInfo itemInfo = new ItemInfo(selectedItem, selectedNumber, 0);
+        purchaseList.add(itemInfo);
       }
-
-      System.out.println("買い物バスケットに入れました。");
     }
 
     while (true) {

@@ -1,6 +1,7 @@
 package junit5.Supermarket.impl;
 
 import junit5.Supermarket.Item;
+import junit5.Supermarket.ItemInfo;
 import junit5.Supermarket.SumPrice;
 import junit5.Supermarket.TaxCalculator;
 
@@ -29,13 +30,14 @@ public class SumPriceImpl implements SumPrice {
   }
 
   @Override
-  public int getItemListPrice(List<Item> itemList) {
+  public int getItemListPrice(List<ItemInfo> itemList) {
     int sumPriceOutput = 0;
     double sumTax = 0.0;
 
-    for (Item item : itemList) {
-      sumPriceOutput += item.getPrice();
-      sumTax += taxCalculator.countPriceWithTax(item.getId(), 1).doubleValue();
+    // ここを別のメソッドでItemInfoのSumPriceを使う
+    for (ItemInfo itemInfo : itemList) {
+      sumPriceOutput += itemInfo.getItem().getPrice() * itemInfo.getSumQuantity();
+      sumTax += taxCalculator.countPriceWithTax(itemInfo.getItem().getId(), itemInfo.getSumQuantity()).doubleValue();
     }
 
     return (int) (sumPriceOutput + Math.ceil(sumTax));
