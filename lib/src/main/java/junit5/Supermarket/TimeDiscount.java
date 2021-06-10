@@ -1,5 +1,5 @@
-// package junit5.Supermarket;
+ package junit5.Supermarket;
 
-// public interface TimeDiscount {
-//     int obentouDiscount();
-// }
+ public interface TimeDiscount {
+     int obentouDiscount(Item item, int totalPrice, int paymentTime);
+ }
