@@ -35,23 +35,26 @@ class SumPriceTest {
     //940円になるはず
     @Test
     void りんご11個のリストを渡すと1100円を取得する() {
-      List<Item> itemList = new ArrayList<Item>();
-      for (int i = 0; i < 11; i++) {
-        itemList.add(Item.APPLE);
-      }
+      List<ItemInfo> itemList = new ArrayList<>();
+      itemList.add(new ItemInfo(Item.APPLE, 11, 0));
 
-      assertEquals(sumPrice.getItemListPrice(itemList),1100 + 88);
+      assertEquals(sumPrice.getItemListPrice(itemList),1100 + 88 - 60);
     }
     //560円になるはず
     @Test
     void 弁当類一個とコーヒー一個とお茶一個のリストを渡すと580円を取得する() {
-      List<Item> itemList = List.of(Item.SYAKEBENN, Item.COFFEE, Item.TEA);
+      List<ItemInfo> itemList = new ArrayList<>();
+      itemList.add(new ItemInfo(Item.SYAKEBENN, 1, 0));
+      itemList.add(new ItemInfo(Item.COFFEE, 1, 0));
+      itemList.add(new ItemInfo(Item.TEA, 1, 0));
+
       assertEquals(sumPrice.getItemListPrice(itemList),580 + 47);
     }
 
     @Test
     void タバコ一個のリストを渡すと420円を取得する() {
-      List<Item> itemList = List.of(Item.TOBACCO);
+      List<ItemInfo> itemList = new ArrayList<>();
+      itemList.add(new ItemInfo(Item.TOBACCO, 1, 0));
       assertEquals(420, sumPrice.getItemListPrice(itemList));
     }
   }
