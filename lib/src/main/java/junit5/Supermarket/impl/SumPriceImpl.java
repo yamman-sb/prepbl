@@ -1,9 +1,6 @@
 package junit5.Supermarket.impl;
 
-import junit5.Supermarket.Item;
-import junit5.Supermarket.ItemInfo;
-import junit5.Supermarket.SumPrice;
-import junit5.Supermarket.TaxCalculator;
+import junit5.Supermarket.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,9 +11,11 @@ public class SumPriceImpl implements SumPrice {
 //    return null;
 //}
   private final TaxCalculator taxCalculator;
+  private final ItemNum itemNum;
 
   public SumPriceImpl() {
     taxCalculator = new TaxCalculatorImpl();
+    itemNum = new ItemNumImpl();
   }
 
   @Override
@@ -33,6 +32,7 @@ public class SumPriceImpl implements SumPrice {
   public int getItemListPrice(List<ItemInfo> itemList) {
     int sumPriceOutput = 0;
     double sumTax = 0.0;
+    int discountSum;
 
     // ここを別のメソッドでItemInfoのSumPriceを使う
     for (ItemInfo itemInfo : itemList) {
@@ -40,6 +40,7 @@ public class SumPriceImpl implements SumPrice {
       sumTax += taxCalculator.countPriceWithTax(itemInfo.getItem().getId(), itemInfo.getSumQuantity()).doubleValue();
     }
 
-    return (int) (sumPriceOutput + Math.ceil(sumTax));
+    discountSum = itemNum.calEachDiscount(itemList);
+    return (int) (sumPriceOutput + Math.ceil(sumTax) - discountSum);
   }
 }

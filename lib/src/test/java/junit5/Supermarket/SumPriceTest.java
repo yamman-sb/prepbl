@@ -38,7 +38,7 @@ class SumPriceTest {
       List<ItemInfo> itemList = new ArrayList<>();
       itemList.add(new ItemInfo(Item.APPLE, 11, 0));
 
-      assertEquals(sumPrice.getItemListPrice(itemList),1100 + 88);
+      assertEquals(sumPrice.getItemListPrice(itemList),1100 + 88 - 60);
     }
     //560円になるはず
     @Test
