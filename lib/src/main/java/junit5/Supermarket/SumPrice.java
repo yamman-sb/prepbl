@@ -1,8 +1,11 @@
 package junit5.Supermarket;
 
-public interface SumPrice{
+import java.util.List;
 
-   //List<ItemInfo> SumFromItemList(List<Item>);
+public interface SumPrice{
    int getItemPrice(int itemId);
+
+   int getItemListPrice(List<Item> itemList);
+   //List<ItemInfo> SumFromItemList(List<Item>);
 
  }
