@@ -1,5 +1,8 @@
+package junit5.Supermarket;
 
-// public interface SumPrice{
+public interface SumPrice{
 
-//   //List<ItemInfo> SumFromItemList(List<Item>);
-// }
+   //List<ItemInfo> SumFromItemList(List<Item>);
+   int getItemPrice(int itemId);
+
+ }
