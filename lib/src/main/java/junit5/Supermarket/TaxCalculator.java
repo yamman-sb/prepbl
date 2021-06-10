@@ -1,4 +1,7 @@
-// public interface TaxCalculator{
+package junit5.Supermarket;
 
-//   double countPriceWithTax(int id, int num);
-// }
+import java.math.BigDecimal;
+
+public interface TaxCalculator {
+ BigDecimal countPriceWithTax(int id, int num);
+}

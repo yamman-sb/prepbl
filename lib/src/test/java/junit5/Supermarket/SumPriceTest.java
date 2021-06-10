@@ -40,13 +40,19 @@ class SumPriceTest {
         itemList.add(Item.APPLE);
       }
 
-      assertEquals(sumPrice.getItemListPrice(itemList),1100);
+      assertEquals(sumPrice.getItemListPrice(itemList),1100 + 88);
     }
     //560円になるはず
     @Test
     void 弁当類一個とコーヒー一個とお茶一個のリストを渡すと580円を取得する() {
       List<Item> itemList = List.of(Item.SYAKEBENN, Item.COFFEE, Item.TEA);
-      assertEquals(sumPrice.getItemListPrice(itemList),580);
+      assertEquals(sumPrice.getItemListPrice(itemList),580 + 47);
+    }
+
+    @Test
+    void タバコ一個のリストを渡すと420円を取得する() {
+      List<Item> itemList = List.of(Item.TOBACCO);
+      assertEquals(420, sumPrice.getItemListPrice(itemList));
     }
   }
 }
