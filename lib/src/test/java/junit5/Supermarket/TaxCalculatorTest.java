@@ -1,7 +1,9 @@
 package junit5.Supermarket;
+
 import org.junit.jupiter.api.*;
 
 import junit5.Supermarket.impl.TaxCalculatorImpl;
+
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,22 +12,24 @@ import static org.junit.jupiter.api.Assertions.*;
 class TaxCalculatorTest {
 
     private TaxCalculator t;
+
     @BeforeEach
-    void 準備(){
+    void 準備() {
         t = new TaxCalculatorImpl();
     }
 
     @Nested
-    class 番号と個数を渡すと合計消費税を返す{
+    class 番号と個数を渡すと合計消費税を返す {
         @Test
-        void みかん３個(){
+        void みかん３個() {
             BigDecimal d = new BigDecimal("9.60");
-            assertEquals(d, t.countPriceWithTax(2,3));
+            assertEquals(d, t.countPriceWithTax(2, 3));
         }
+
         @Test
-        void タバコ何個渡しても消費税0(){
+        void タバコ何個渡しても消費税0() {
             BigDecimal d = new BigDecimal("0.00");
-            assertEquals(d, t.countPriceWithTax(7,3));
+            assertEquals(d, t.countPriceWithTax(7, 3));
         }
 
     }
