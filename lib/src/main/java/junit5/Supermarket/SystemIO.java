@@ -65,10 +65,10 @@ public class SystemIO {
       }
 
       // purchaseListに同じ商品がない場合は新規作成、ある場合追加
-      if (itemNums.contains(selectedItemId) ) {
+      if (itemNums.contains(selectedItemId)) {
         // 追加
         for (ItemInfo itemInfo : itemList) {
-          if (itemInfo.getItem().getId()  == selectedItemId) {
+          if (itemInfo.getItem().getId() == selectedItemId) {
             itemInfo.addQuantity(selectedNumber);
             break;
           }
