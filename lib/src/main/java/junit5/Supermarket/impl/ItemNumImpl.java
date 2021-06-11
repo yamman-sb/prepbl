@@ -12,12 +12,12 @@ import java.util.List;
 public class ItemNumImpl implements ItemNum {
   private final EventDiscount eventDiscount;
 
-  public ItemNumImpl(){
+  public ItemNumImpl() {
     this.eventDiscount = new EventDiscountImpl();
   }
 
   @Override
-  public int calEachDiscount(List<ItemInfo> itemInfos){
+  public int calEachDiscount(List<ItemInfo> itemInfos) {
     int discount = 0;
     // りンゴ
     for (ItemInfo itemInfo : itemInfos) {
@@ -55,7 +55,7 @@ public class ItemNumImpl implements ItemNum {
 //   //   this.appleNum = appleNum;
 //   //   this.three_Set_Num = three_Set_Num;
 //   // }
-  
+
 //   // public int get_apple_Num(){
 //   //   int unit_apple_Price = 0;
 //   //   unit_apple_Price = Item.APPLE.price();
