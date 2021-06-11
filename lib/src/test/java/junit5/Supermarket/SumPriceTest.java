@@ -10,8 +10,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SumPriceTest {
   private SumPrice sumPrice;
+
   @BeforeEach
-  void 前処理(){
+  void 前処理() {
     sumPrice = new SumPriceImpl();
   }
 
@@ -20,13 +21,13 @@ class SumPriceTest {
     @Test
     void りんごのidを渡すと100円を取得する() {
       int itemId = Item.APPLE.getId();
-      assertEquals(sumPrice.getItemPrice(itemId),100);
+      assertEquals(sumPrice.getItemPrice(itemId), 100);
     }
 
     @Test
     void みかんのidを渡すと40円を取得する() {
       int itemId = Item.ORANGE.getId();
-      assertEquals(sumPrice.getItemPrice(itemId),40);
+      assertEquals(sumPrice.getItemPrice(itemId), 40);
     }
   }
 
@@ -38,8 +39,9 @@ class SumPriceTest {
       List<ItemInfo> itemList = new ArrayList<>();
       itemList.add(new ItemInfo(Item.APPLE, 11, 0));
 
-      assertEquals(sumPrice.getItemListPrice(itemList),1100 + 88 - 60);
+      assertEquals(sumPrice.getItemListPrice(itemList), 1100 + 88 - 60);
     }
+
     //560円になるはず
     @Test
     void 弁当類一個とコーヒー一個とお茶一個のリストを渡すと580円を取得する() {
@@ -48,7 +50,7 @@ class SumPriceTest {
       itemList.add(new ItemInfo(Item.COFFEE, 1, 0));
       itemList.add(new ItemInfo(Item.TEA, 1, 0));
 
-      assertEquals(sumPrice.getItemListPrice(itemList),580 + 47);
+      assertEquals(sumPrice.getItemListPrice(itemList), 580 + 47);
     }
 
     @Test
