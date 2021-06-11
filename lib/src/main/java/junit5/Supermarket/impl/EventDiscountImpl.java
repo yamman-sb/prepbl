@@ -10,7 +10,7 @@ public class EventDiscountImpl implements EventDiscount {
     int threeSetNum = (num / 3);
 
     if (id == Item.APPLE.getId()) {
-      sumAppleDiscount = threeSetNum*20 ;
+      sumAppleDiscount = threeSetNum * 20;
     }
     return sumAppleDiscount;
   }
