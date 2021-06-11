@@ -30,13 +30,18 @@ public class SumPriceImpl implements SumPrice {
     double sumTax = 0.0;
     int discountSum;
 
+    discountSum = itemNum.calEachDiscount(itemList);
+
     // ここを別のメソッドでItemInfoのSumPriceを使う
     for (ItemInfo itemInfo : itemList) {
       sumPriceOutput += itemInfo.getSumPrice();
-      sumTax += taxCalculator.countPriceWithTax(itemInfo.getItem().getId(), itemInfo.getSumQuantity()).doubleValue();
+      if (itemInfo.getItem().equals(Item.APPLE)){
+        sumTax += taxCalculator.countPriceWithTax(itemInfo.getItem().getId(), (itemInfo.getSumPrice() - discountSum)).doubleValue();
+      } else {
+        sumTax += taxCalculator.countPriceWithTax(itemInfo.getItem().getId(), itemInfo.getSumPrice()).doubleValue();
+      }
     }
 
-    discountSum = itemNum.calEachDiscount(itemList);
     return (int) (sumPriceOutput + Math.ceil(sumTax) - discountSum);
   }
 }
