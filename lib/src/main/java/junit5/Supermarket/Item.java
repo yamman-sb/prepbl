@@ -13,12 +13,12 @@ public enum Item{
   COFFEE("コーヒー",10,100);
 
   private final String name;
-  private final int iD;
+  private final int id;
   private final int price;
 
-  Item(String name, int iD, int price){
+  Item(String name, int id, int price){
     this.name = name;
-    this.iD = iD;
+    this.id = id;
     this.price = price;
   }
 
@@ -27,7 +27,7 @@ public enum Item{
   }
 
   public int getId() {
-    return iD;
+    return id;
   }
 
   public int getPrice() {
