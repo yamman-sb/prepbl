@@ -1,9 +1,8 @@
 package junit5.Supermarket;
-public interface EventDiscount
 
-{
-// お題 4
-int appleEventDiscount(int id,int num);
+public interface EventDiscount {
+  // お題 4
+  int appleEventDiscount(int id, int num);
 
 //   // // お題 5
 //   // public static int tenItemNum(int itemId, int itemNum);
