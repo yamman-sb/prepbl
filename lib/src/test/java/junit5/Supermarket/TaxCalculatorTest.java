@@ -21,7 +21,7 @@ class TaxCalculatorTest {
     @Nested
     class 番号と個数を渡すと合計消費税を返す {
         @Test
-        void みかん３個() {
+        void みかん３を渡すと割引金額9_60を返す() {
             BigDecimal d = new BigDecimal("9.60");
             assertEquals(d, t.countPriceWithTax(2, 3));
         }
