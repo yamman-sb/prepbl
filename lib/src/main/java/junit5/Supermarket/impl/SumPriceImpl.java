@@ -2,14 +2,10 @@ package junit5.Supermarket.impl;
 
 import junit5.Supermarket.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public class SumPriceImpl implements SumPrice {
-//@Override
-//public ArrayList<ItemInfo> SumFromItemList(List<Item> items) {
-//    return null;
-//}
+
   private final TaxCalculator taxCalculator;
   private final ItemNum itemNum;
 
@@ -25,7 +21,7 @@ public class SumPriceImpl implements SumPrice {
         return item.getPrice();
       }
     }
-   return 0;
+    return 0;
   }
 
   @Override
